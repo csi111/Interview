@@ -62,18 +62,18 @@ OnPreDrawListener 를 등록해서 드로잉 직전에 리스너가 호출 되�
 ### Generics란?
 제네릭스란 쉽게말해서 ArrayList(컬렉션 클래스에서 사용가능하지만 쉬운 설명을 위해 대표적인 컬렉션 클래스인 ArrayList를 가지고 설명 하겠습니다.) 가 다룰 객체를 미리 명시해줌으로써 형변환을 하지 않고 사용하는 것입니다. 즉 ArrlayList가 사용할 객체의 타입이란 이야기 입니다
 
-## JVM(JAVA) 메모리구조
+### JVM(JAVA) 메모리구조
 Stack
 Heap
 
-## JAVA finalize란?
+### JAVA finalize란?
 
-## OOP 5대 원칙
+### OOP 5대 원칙
 
-## Java equals를 상속받을시, 같이 상속받아 사용해야 하는 Method는?
+### Java equals를 상속받을시, 같이 상속받아 사용해야 하는 Method는?
 
-## ENUM에 대해 설명
+### ENUM에 대해 설명
 
-## ENUM과 static 상수를 선언하여 사용하는 것의 차이
+### ENUM과 static 상수를 선언하여 사용하는 것의 차이
 
  

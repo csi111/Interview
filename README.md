@@ -171,3 +171,16 @@ Reference [http://www.nextree.co.kr/p11686/](http://www.nextree.co.kr/p11686/)
 ## 상속이란 
 상속(Inheritance)이란 물려준다는 의미다. 어떤 객체가 있을 때 그 객체의 필드(변수)와 메소드를 다른 객체가 물려 받을 수 있는 기능을 상속이라고 한다.
  
+## Generic이란  
+제네릭(Generic)은 클래스 내부에서 사용할 데이터 타입을 외부에서 지정하는 기법을 의미한다.
+
+- 컴파일 단계에서 오류가 검출된다
+- 중복의 제거와 타입 안전성을 동시에 추구할 수 있다
+- 제네릭으로 올 수 있는 데이터 타입을 특정 클래스의 자식으로 제한할 수 있다
+
+Reference 
+
+[http://lng1982.tistory.com/240] (http://lng1982.tistory.com/240)
+[https://opentutorials.org/module/516/6237] (https://opentutorials.org/module/516/6237)
+
+ 

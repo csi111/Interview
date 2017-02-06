@@ -220,3 +220,32 @@ Reference
 	    }
 	}
  
+	 public AbstractStringBuilder reverse() {
+		    boolean hasSurrogate = false;
+		    int n = count - 1;
+		    for (int j = (n-1) >> 1; j >= 0; --j) {
+			char temp = value[j];
+			char temp2 = value[n - j];
+			if (!hasSurrogate) {
+			    hasSurrogate = (temp >= Character.MIN_SURROGATE && temp <= Character.MAX_SURROGATE)
+				|| (temp2 >= Character.MIN_SURROGATE && temp2 <= Character.MAX_SURROGATE);
+			}
+			value[j] = temp2;
+			value[n - j] = temp;
+		    }
+		    if (hasSurrogate) {
+			// Reverse back all valid surrogate pairs
+			for (int i = 0; i < count - 1; i++) {
+			    char c2 = value[i];
+			    if (Character.isLowSurrogate(c2)) {
+				char c1 = value[i + 1];
+				if (Character.isHighSurrogate(c1)) {
+				    value[i++] = c1;
+				    value[i] = c2;
+				}
+			    }
+			}
+		    }
+		    return this;
+		}
+ 

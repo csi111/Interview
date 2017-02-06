@@ -150,6 +150,7 @@ equals에서 쓰는 멤버 변수를 hashCode를 구현하는데도 똑같이 �
 	        return true;
 	    }
 
+Reference [http://iilii.egloos.com/4000476](http://iilii.egloos.com/4000476)
 
 
 ## ENUM에 대해 설명

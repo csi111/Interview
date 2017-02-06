@@ -183,4 +183,40 @@ Reference
 [http://lng1982.tistory.com/240] (http://lng1982.tistory.com/240)
 [https://opentutorials.org/module/516/6237] (https://opentutorials.org/module/516/6237)
 
+## String Reverse 방법 
+
+	 public class ReverseInPlace {
+
+	  static char[]  str=null;
+
+	    public static void main(String s[]) {
+	      if(s.length==0)
+		System.exit(-1);
+
+	       str=s[0].toCharArray();
+
+	       int begin=0;
+	       int end=str.length-1;
+
+	       System.out.print("Original string=");
+	       for(int i=0; i<str.length; i++){
+		 System.out.print(str[i]);
+	       }
+
+	       while(begin<end){
+		  str[begin]= (char) (str[begin]^str[end]);
+		  str[end]= (char)   (str[begin]^str[end]);
+		  str[begin]= (char) (str[end]^str[begin]);
+
+		  begin++;
+		  end--;       
+	       }
+
+	       System.out.print("\n" + "Reversed string=");
+	       for(int i=0; i<str.length; i++){
+		 System.out.print(str[i]);
+	       }
+
+	    }
+	}
  

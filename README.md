@@ -86,12 +86,71 @@ Heap
 - 상속을 통한 재사용은 기반 클래스와 서브 클래스 사이에 IS-A관계가 있을 경우로만 제한 되어야 합니다. 그 외의 경우에는 합성(composition)을 이용한 재사용을 해야 합니다. 상속은 다형성과 따로 생각할 수 없습니다. 그리고 다형성으로 인한 확장 효과를 얻기 위해서는 서브 클래스가 기반 클래스와 클라이언트 간의 규약(인터페이스)를 어겨서는 안 됩니다. 결국 이 구조는 다형성을 통한 확장의 원리인 OCP를 제공
 
 ######ISP (인터페이스 분리의 원칙: Interface Segregation Principle)
+- ISP원리는 한 클래스는 자신이 사용하지 않는 인터페이스는 구현하지 말아야 한다는 원리
+- 어떤 클래스가 다른 클래스에 종속될 때에는 가능한 최소한의 인터페이스만을 사용
 
 ######DIP (의존성역전의 원칙: Dependency Inversion Principle)
+- 의존 관계의 역전 Dependency Inversion 이란 구조적 디자인에서 발생하던 하위 레벨 모듈의 변경이 상위 레벨 모듈의 변경을 요구하는 위계관계를 끊는 의미의역전
+- 실제 사용 관계는 바뀌지 않으며, 추상을 매개로 메시지를 주고 받음으로써 관계를 최대한 느슨하게 만드는 원칙
 
 Reference [http://www.nextree.co.kr/p6960/](http://www.nextree.co.kr/p6960/)
 
+## Java equals
+- equals(Object obj) 는 객체의 레퍼런스가 아닌 객체의 내용이 같은 지를 판단하는 메쏘드
+- equals는 어떤 오브젝트가 인자로 받은 다른 오브젝트와 그 내용이 일치하는 지를 판단합니다. == 부호로 판단하는 것은 레퍼런스, 즉 메모리 상에 같은 객체인지를 판단하는 반면, equals는 그 내용을 판단합니다.
+- 추이성: 어떤 x,y,z에 대해서도 x.equals(y)와 y.equals(z)가 true면 x.equals(z)도 true를 리턴해야 합니다.
+- 일관성: x,y의 멤버 변수가 변하지 않는 이상 x.equals(y)는 항상 같은 값을 리턴해야 한다.
+- 대칭성. 어떠한 x,y에 대해서도 x.equals(y) 와 y.equals(x)는 같은 값을 가져야 합니다.
+- 어떤 객체 x에 대해서도 x.equals(x)는 반드시 true를 리턴해야 합니다.
+
+Reference [http://egloos.zum.com/iilii/v/3999066](http://egloos.zum.com/iilii/v/3999066)
+
+## Java hashcode
+- hashCode는 hash 값을 리턴
+- 같은 자바 어플리케이션에서 실행된다면, equals에서 비교하는 멤버변수가 변경되지 않는다면, 같은 int 값을 리턴해야 합니다.
+equals에서 쓰는 멤버 변수를 hashCode를 구현하는데도 똑같이 쓰면 됩니다. 결국 equals의 구현과 hashCode의 구현은 동떨어질 수 없습니다.
+-  a.equals(b)가 true일 경우 a의 hashCode와 b의 hashCode는 같은 값을 리턴해야 합니다.
+-  a.equals(b)가 false일 경우 a의 hashCode와 b의 hashCode가 반드시 다른 값을 리턴할 필요는 없지만, 가능하면 다른 값을 리턴하는 게 좋습니다.
+
 ## Java equals를 상속받을시, 같이 상속받아 사용해야 하는 Method는?
+hashcode
+같은 자바 어플리케이션에서 실행된다면, equals에서 비교하는 멤버변수가 변경되지 않는다면, 같은 int 값을 리턴해야 합니다.
+equals에서 쓰는 멤버 변수를 hashCode를 구현하는데도 똑같이 쓰면 됩니다.
+`public class Person {
+    private String name;
+    public Person(String name) {
+        super();
+        this.name = name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Override
+    public int hashCode() {
+        final int PRIME = 31;
+        int result = 1;
+        result = PRIME * result + ((name == null) ? 0 : name.hashCode());
+        return result;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Person other = (Person) obj;
+        if (name == null) {
+            if (other.name != null)
+                return false;
+        } else if (!name.equals(other.name))
+            return false;
+        return true;
+    }
+}`
+
+
 
 ## ENUM에 대해 설명
 관련이 있는 상수들의 집합입니다. 자바에서는 final로 String과 같은 문자열이나 숫자들을 나타내는 기본 자료형의 값을 고정할 수 있습니다. 이렇게 고정된 값을 상수라고 합니다. 영어로는 constant입니다. 어떤 클래스가 상수만으로 작성되어 있으면 반드시 class로 선언할 필요는 없습니다. 이럴 때 class로 선언된 부분에 enum이라고 선언하면 이 객체는 상수의 집합이다. 라는 것을 명시적으로 나타냅니다. enum은 enumeration이라는 셈, 계산, 열거, 목록이라는 영어단어의 앞부분만 따서 만든 예약어입니다.

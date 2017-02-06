@@ -116,39 +116,39 @@ equals에서 쓰는 멤버 변수를 hashCode를 구현하는데도 똑같이 �
 hashcode
 같은 자바 어플리케이션에서 실행된다면, equals에서 비교하는 멤버변수가 변경되지 않는다면, 같은 int 값을 리턴해야 합니다.
 equals에서 쓰는 멤버 변수를 hashCode를 구현하는데도 똑같이 쓰면 됩니다.
-`public class Person {
-    private String name;
-    public Person(String name) {
-        super();
-        this.name = name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    @Override
-    public int hashCode() {
-        final int PRIME = 31;
-        int result = 1;
-        result = PRIME * result + ((name == null) ? 0 : name.hashCode());
-        return result;
-    }
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        final Person other = (Person) obj;
-        if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
-        return true;
-    }
-}`
+
+	public class Person {
+	    private String name;
+	    public Person(String name) {
+	        super();
+	        this.name = name;
+	    }
+	    public void setName(String name) {
+	        this.name = name;
+	    }
+	    @Override
+	    public int hashCode() {
+	        final int PRIME = 31;
+	        int result = 1;
+	        result = PRIME * result + ((name == null) ? 0 : name.hashCode());
+	        return result;
+	    }
+	    @Override
+	    public boolean equals(Object obj) {
+	        if (this == obj)
+	            return true;
+	        if (obj == null)
+	            return false;
+	        if (getClass() != obj.getClass())
+	            return false;
+	        final Person other = (Person) obj;
+	        if (name == null) {
+	            if (other.name != null)
+	                return false;
+	        } else if (!name.equals(other.name))
+	            return false;
+	        return true;
+	    }
 
 
 

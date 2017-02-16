@@ -47,15 +47,59 @@
 
 ### Abstract를 활용한 패턴에 대해 설명
 
-### JVM(JAVA) 메모리구조
-Stack
-Heap
+### JVM(JAVA) Stack, Heap 메모리구조
+*Stack*
+변수값, 기본타입(Primitive Type)인 정수형 변수, 실수형 변수, 논리형 변수를 실제값으로 저장한다.
+크기가 정해져 있는 타입으로 메모리 할당시 컴파일될때 이미 계산이 이루어짐.
+메소드 호출시에 처리되는 value(Heap메모리상의 Objects 참조 값 -refer objects, 메소드 내에서 생성 되고 사라지는 변수들 - short-lived values)가 저장되며, 항상 LIFO(Last-In-First-Out)형태로 실행된다.
+메소드가 실행되면 새로운 블록의 Stack메모리 공간이 잡히며 local primitie values와 메소드 내의 refer Objects가 Stack 메모리 공간에 할당된다. 메소드가 끝날시 메모리 공간은 반환되어 비워진다.
 
-### Stack과 Heap의 동작 원리
+*Heap*
+객체(Objects, JRE classes)와 배열이 생성되는 공간이며 GC(Garbage Collection)는 Heap 메모리 공간 내에 Objects 중 참조(Reference) 값이 없는 Objects에 대해서 실행하여 Objects가 할당된 메모리 공간을 반환해주어 Heap 메모리 영역을 청소/관리 해준다.
+Heap메모리영역의 모든 Objects은 프로세스(어플리케이션) 내에서 전역적으로 액세스가 가능하며 참조(Reference)가 가능하다.
+
+
+###### Example
+	package com.journaldev.test;
+	
+	public class Memory {
+	
+		public static void main(String[] args) { // Line 1
+			int i=1; // Line 2
+			Object obj = new Object(); // Line 3
+			Memory mem = new Memory(); // Line 4
+			mem.foo(obj); // Line 5
+		} // Line 9
+	
+		private void foo(Object param) { // Line 6
+			String str = param.toString(); //// Line 7
+			System.out.println(str);
+		} // Line 8
+	
+	}
+![https://github.com/csi111/Interview/blob/master/java/Java-Heap-Stack-Memory.png](https://github.com/csi111/Interview/blob/master/java/Java-Heap-Stack-Memory.png)
+
+
+[http://www.journaldev.com/4098/java-heap-space-vs-stack-memory] (http://www.journaldev.com/4098/java-heap-space-vs-stack-memory)
 
 ### JAVA GC 구동 원리
+Java는 프로그램 코드 내에서 명시적으로 메모리 해제를 선언하지 않으며, GC(Garbage Collector)가 참조가 없어진 객체(필요없어진 객체)를 Heap메모리 영역에서 찾아서 메모리를 반환(지우는) 작업을 한다.
 
-### Mobile에서의 GC의 단점
+JVM에서 GC가 수행될때는 프로그램의 수행을 모두 멈추고 GC를 수행하게 되어 프로그램 성능에 영향을 끼치는 단점이 존재
+
+[http://d2.naver.com/helloworld/1329] (http://d2.naver.com/helloworld/1329)
+
+
+
+### Mobile에서 GC의 단점
+GC가 수행될때 단말의 성능이 좋지 않은 경우 한번에 많은 Objects의 메모리가 반환되는 처리가 될때 앱이 버벅이는 경우가 발생
+
+안드로이드의 경우 3.0 이상 부터 concurrent 및 partial collection방식을 통해 가비지컬렉션의 반응성이 높아졌으며 동작 시간이 5ms 이하로 단축되어 GC가 적시에 동작되도록 개선됨.
+
+[https://source.android.com/devices/tech/dalvik/gc-debug.html] (https://source.android.com/devices/tech/dalvik/gc-debug.html)
+
+[https://rejrecords.wordpress.com/2016/11/26/android-gc-vs-ios-ref-counting/amp/] (https://rejrecords.wordpress.com/2016/11/26/android-gc-
+vs-ios-ref-counting/amp/)
 
 ### JAVA finalize란?
 - 자바의 메모리 해제는 Garbage Collector(이하 GC)에 의해 수행됩니다. finalize()는 GC에 의해 호출됩니다. 
@@ -67,6 +111,18 @@ Reference [http://iilii.egloos.com/4091133](http://iilii.egloos.com/4091133)
 ### HashMap, HashTable을 구현시 사용할 자료구조 및 설명
 
 ### Hashcode의 return 값
+int형 반환(-2147483648 ~ 2147483647)
+
+Java의 정수/실수형의 값 범위
+
+* **boolean** 1bit
+* **int** 32bits
+* **long** 64bits
+* **float** 32bits
+* **double** 64bits
+* **short** 16bits
+* **char** 16bits
+* **byte** 8bits
 
 ### Hash의 정의
 

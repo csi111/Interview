@@ -248,6 +248,15 @@ Reference [http://www.nextree.co.kr/p11686/](http://www.nextree.co.kr/p11686/)
 
 ### 상속이란 
 상속(Inheritance)이란 물려준다는 의미다. 어떤 객체가 있을 때 그 객체의 필드(변수)와 메소드를 다른 객체가 물려 받을 수 있는 기능을 상속이라고 한다.
+
+### Object의 기본 메소드
+
+* hashcode()
+* equals(Object obj)
+* clone()
+* toString()
+* finalize()
+
  
 ### Generic이란  
 제네릭(Generic)은 클래스 내부에서 사용할 데이터 타입을 외부에서 지정하는 기법을 의미한다.

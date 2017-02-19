@@ -2,6 +2,46 @@
 
 ### 정렬 알고리즘 중 아는 정렬 알고리즘에 대해 말하고 시간복잡도에 대해 말하기
 
+**Bubble sort**
+
+평균 : n^2
+최악 : n^2
+
+**Selection sort**
+
+평균 : n^2
+최악 : n^2
+
+**Insertion sort**
+
+평균 : n^2
+최악 : n^2
+
+**Quick sort**
+
+평균 : nlogn
+최악 : n^2
+
+**Merge sort**
+
+평균 : nlogn
+최악 : nlogn
+
+**Heap sort**
+
+평균 : nlogn
+최악 : nlogn
+
+
+### 검색 알고리즘 중 아는 알고리즘에 대해 말하기
+
+**Unordered Linear Search(무순서 선형 검색)**
+
+**Sorted/Ordered Linear Search(정렬/순서 선형 검색)**
+
+**Binary Search(이진 검색)**
+
+
 ### 1 ~ 1000까지 중 임의의 숫자를 찾는데 사용하는 기법 및 최대 몇번만에 찾을 수 있는지
 - BinarySearch
 

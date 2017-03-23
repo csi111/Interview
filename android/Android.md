@@ -25,6 +25,10 @@
 
 ### Android TroubleShooting 경험
 
+### Memory leak에 대한 경험 및 처리하고 개선한 방안
+
+### MAT(Memory Analytics Tool), Property, Heap Memory등을 활용하여 앱의 성능을 개선한 경험
+
 ### Image Process에 대한 설명 및 경험과 Caching처리에 대한 설명
 
 ### ServiceComponent가 동작하는 Thread에 대해 설명

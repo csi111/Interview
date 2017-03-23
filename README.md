@@ -8,3 +8,5 @@ Interview Q&amp;A
 ##[Algorithm](https://github.com/csi111/Interview/blob/master/algorithm/algorithm.md)
 
 ##[Programming](https://github.com/csi111/Interview/blob/master/programming/Programming.md)
+
+##[General](https://github.com/csi111/Interview/blob/master/general/general.md)

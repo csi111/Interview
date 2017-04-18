@@ -35,6 +35,8 @@
 
 ###Activity의 Window의 역할과 Instance가 Activity별 생성인지 여부
 
+### Threadpool에서 pool의 갯수를 왜 CPU Core갯수의 의 N-1로 했는지
+
 ### Width와 MeasureWidth의 차이
 Layout의 드로잉 과정 
 * Animate 과정(animate)

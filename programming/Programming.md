@@ -6,6 +6,16 @@
 
 ### Stream이란 무엇인가
 
+### Domain모델의 정의
+- 도메인의 정의
+	* A domain is a field of study that defines a set of common requirements, terminology, and functionality for any software program constructed to solve a problem in the area of computer programming, known as domain engineering.
+	* 도메인이란 요구사항, 용어, 기능등을 컴퓨터프로그래밍을 통해 문제를 해결하기 위해 정의된 학문적인 용어로써 현실세계의 요구사항,용어,기능등을 통틀어서 얘기함을 의미한다.
+- 도메인모델의 정의
+	* A domain model in problem solving and software engineering is a conceptual model of all the topics related to a specific problem. It describes the various entities, their attributes, roles, and relationships, plus the constraints that govern the problem domain. It does not describe solutions to the problem.
+	* 
+
+출처: http://javacan.tistory.com/entry/what-is-a-domain-model [자바캔(Java Can Do IT)]
+
 ### 디자인 패턴의 종류
 
 - 스트래티지 패턴 (strategy pattern)

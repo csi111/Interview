@@ -106,7 +106,7 @@ JVM에서 GC가 수행될때는 프로그램의 수행을 모두 멈추고 GC를
 
 [http://d2.naver.com/helloworld/1329] (http://d2.naver.com/helloworld/1329)
 
-
+###GC대상 판별법
 
 ### Mobile에서 GC의 단점
 GC가 수행될때 단말의 성능이 좋지 않은 경우 한번에 많은 Objects의 메모리가 반환되는 처리가 될때 앱이 버벅이는 경우가 발생
@@ -331,3 +331,32 @@ Reference
 * HashMap은 저장요소의 순회를 위해 Fail-Fast Iterator를 반환하며 HasTable은 Enumeration을 반환한다. 
 
  ****
+
+###Singletone에서 메모리누수 발생상황
+
+###쓰레드에서 공유하는 리소스는?
+
+###쓰레드는 왜 각자 스택영역을 갖는가
+
+###익명클래스에서 static접근 가능여부
+
+###static변수 메모리 저장영역
+
+###ArrayList와 LinkedList차이
+
+###ArrayList가 한번에 찾을 수 있는 이유는?
+
+###TreeSet과 HashSet의 차이
+
+###Hashmap을 사용하는 이유
+
+###Hashmap에서 정렬된상태로 유지하고싶은 경우
+
+###Primitive타입에서 read write는 atomic할까
+
+###Tree에 대해서 설명
+
+###Tree에서 balance상태를 유지하기위해서 수행하는 작업이 시간복잡도에 영향을 미치는가
+
+###Volatile 키워드에 대해 설명
+

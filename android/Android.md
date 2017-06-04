@@ -23,6 +23,10 @@
 
 ### MVP, MVVM에 대한 설명
 
+###JVM과 ART
+
+###ANR이란
+
 ### Android TroubleShooting 경험
 
 ### Memory leak에 대한 경험 및 처리하고 개선한 방안
@@ -64,3 +68,35 @@ ViewTreeObserver 사용
 뷰의 크기를 알고자 하는 뷰에서 getViewTreeObserver() 를 통해서 ViewTreeObserver를 가져온다
 OnPreDrawListener 를 등록해서 드로잉 직전에 리스너가 호출 되도록 한다.
 픽셀 단위의 뷰의 크기를 알 수 있다.
+
+###CustomView에서 onMeasure, onLayout, onDraw의 순서와 하는일
+
+###안드로이드 O에서 가장 인상깊었던 것
+
+###가장 유용하다고 느낀 라이브러리
+
+###Fragment를 왜 public으로 해야하고 생성자에 인자가 없어야하는지
+
+###Listview와 Scrollview의 차이
+
+###Databinding과 butterknife에 대해 설명하고 장단점
+
+###Touch interceptor의 기능과 true/false 리턴했을때의 차이
+
+###안드로이드에서 Task란
+
+###launchmode 4가지
+
+###onDestroy()가 불리고 나서도 해당 Activity가 오류가 나는경우는?
+
+###Activity가 백버튼등으로 뒤에있다가 다시 나타날때 상태관리
+
+###Parcel과 Serializable차이
+
+###Asynctask innerclass static할때와 안할때의 차이
+
+###비밀번호 저장시 사용한 방법
+
+###비동기작업할때 주로 어떻게 쓰는지(post(), handler등)
+
+###Sqlite 사용경험

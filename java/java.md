@@ -195,6 +195,7 @@ hashcode
 같은 자바 어플리케이션에서 실행된다면, equals에서 비교하는 멤버변수가 변경되지 않는다면, 같은 int 값을 리턴해야 합니다.
 equals에서 쓰는 멤버 변수를 hashCode를 구현하는데도 똑같이 쓰면 됩니다.
 
+
 	public class Person {
 	    private String name;
 	    public Person(String name) {
@@ -229,6 +230,11 @@ equals에서 쓰는 멤버 변수를 hashCode를 구현하는데도 똑같이 �
 	    }
 
 Reference [http://iilii.egloos.com/4000476](http://iilii.egloos.com/4000476)
+
+### String의 이해
+리터럴과 new String선언의 차이
+
+Reference [https://medium.com/@joongwon/string-%EC%9D%98-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EC%B0%B0-57af94cbb6bc](https://medium.com/@joongwon/string-%EC%9D%98-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EC%B0%B0-57af94cbb6bc)
 
 
 ### ENUM에 대해 설명

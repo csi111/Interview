@@ -1,13 +1,13 @@
 # Android
 
-###Android Process와 Thread
+### Android Process와 Thread
 
-###Android Service vs Intent Service
+### Android Service vs Intent Service
 
 * IntentService는 Service를 상속받은 클래스로 작업을 수행하는 스레드(Thread)를 별도로 생성하는 서비스
 * 여러번 실행될 경우 별도의 Queue를 통해 처리됨.
 
-####IntentService의 장점
+#### IntentService의 장점
 
 * 서비스의 콜백메소드들에 대해서 디폴트 구현을 제공하기 때문에 별도로 콜백 메소드를 구현할 필요가 없음. 
 * onHandleIntent() 메소드만 구현하면 되고 이 메소드 안에서 클라이언트에 의해 제공되는 작업.
@@ -15,19 +15,19 @@
 
 참고 <http://android-kr.tistory.com/9#Lifecycle> 
 
-###ListView의 ViewHolder패턴에 대해 설명하고 왜 사용하는지에 대해 설명
+### ListView의 ViewHolder패턴에 대해 설명하고 왜 사용하는지에 대해 설명
 
-###View와 Fragment의 차이
+### View와 Fragment의 차이
 
-###Asynctask에서 UIThread를 제어하기 위해 사용할 수 있는 기법에 대해 모두 말하시오
+### Asynctask에서 UIThread를 제어하기 위해 사용할 수 있는 기법에 대해 모두 말하시오
 
 ### MVP, MVVM에 대한 설명
 
-###JVM과 ART
+### JVM과 ART
 
-###ANR이란
+### ANR이란
 
-###ANR이 일어나는 이유, 탐지하는 방법, 
+### ANR이 일어나는 이유, 탐지하는 방법, 
 
 ### Android TroubleShooting 경험
 
@@ -39,7 +39,7 @@
 
 ### ServiceComponent가 동작하는 Thread에 대해 설명
 
-###Activity의 Window의 역할과 Instance가 Activity별 생성인지 여부
+### Activity의 Window의 역할과 Instance가 Activity별 생성인지 여부
 
 ### Threadpool에서 pool의 갯수를 왜 CPU Core갯수의 의 N-1로 했는지
 
@@ -71,44 +71,58 @@ ViewTreeObserver 사용
 OnPreDrawListener 를 등록해서 드로잉 직전에 리스너가 호출 되도록 한다.
 픽셀 단위의 뷰의 크기를 알 수 있다.
 
-###CustomView에서 onMeasure, onLayout, onDraw의 순서와 하는일
+### CustomView에서 onMeasure, onLayout, onDraw의 순서와 하는일
 
-###안드로이드 O에서 가장 인상깊었던 것
+### 안드로이드 O에서 가장 인상깊었던 것
 
-###가장 유용하다고 느낀 라이브러리
+### 가장 유용하다고 느낀 라이브러리
 
-###Fragment를 왜 public으로 해야하고 생성자에 인자가 없어야하는지
+### Fragment를 왜 public으로 해야하고 생성자에 인자가 없어야하는지
 
-###Listview와 Scrollview의 차이
+### Listview와 Scrollview의 차이
 
-###Databinding과 butterknife에 대해 설명하고 장단점
+### Databinding과 butterknife에 대해 설명하고 장단점
 
-###Touch interceptor의 기능과 true/false 리턴했을때의 차이
+### Touch interceptor의 기능과 true/false 리턴했을때의 차이
 
-###안드로이드에서 Task란
+### 안드로이드에서 Task란
 
-###launchmode 4가지
+### launchmode 4가지
 
-###onDestroy()가 불리고 나서도 해당 Activity가 오류가 나는경우는?
+### onDestroy()가 불리고 나서도 해당 Activity가 오류가 나는경우는?
 
-###Activity가 백버튼등으로 뒤에있다가 다시 나타날때 상태관리
+### Activity가 백버튼등으로 뒤에있다가 다시 나타날때 상태관리
 
-###Parcel과 Serializable차이
+### Parcel과 Serializable차이
 
-###Asynctask innerclass static할때와 안할때의 차이
+### Asynctask innerclass static할때와 안할때의 차이
 
-###비밀번호 저장시 사용한 방법
+### 비밀번호 저장시 사용한 방법
 
-###비동기작업할때 주로 어떻게 쓰는지(post(), handler등)
+### 비동기작업할때 주로 어떻게 쓰는지(post(), handler등)
 
-###Sqlite 사용경험
+### Sqlite 사용경험
 
-###Rxjava Scheduler 종류와 차이
+### Rxjava Scheduler 종류와 차이
 
-###이미지로더 라이브러리를 만든다면 어떻게 만들것인가
+### 이미지로더 라이브러리를 만든다면 어떻게 만들것인가
 
-###메모리릭을 확인하는 방법
+### 메모리릭을 확인하는 방법
 
-###코틀린(함수형)언어의 장점은?
+### 코틀린(함수형)언어의 장점은?
 
-###도즈모드란 무엇인가, 도즈모드를 탐지하는 방법은?
+### 도즈모드란 무엇인가, 도즈모드를 탐지하는 방법은?
+
+### ART, Dalvik
+
+### 해당 라이브러리를 선택하게된 기준
+
+### 스레드, 루퍼, 핸들러로 설명
+
+### 디스크캐시 VS 메모리캐시
+
+### 안드로이드 위젯 만들어봤는지
+
+###  Manifest 구조
+
+### 액션바 VS 툴바

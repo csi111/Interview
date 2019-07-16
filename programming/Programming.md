@@ -145,6 +145,8 @@
 
 ### Rx에서 subject란?
 
+### Rx에서 Subject와 Observable 차이
+
 ### Rx에서 2개에서 emit될때 먼저도착하고나서 수행하고 싶을때
 
 ### Rx Maybe
@@ -152,3 +154,5 @@
 ### Rx CompositeDisposable
 
 ### Rx subscribeOn, observeOn
+
+### Rxjava Scheduler 종류와 차이

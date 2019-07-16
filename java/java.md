@@ -1,10 +1,9 @@
-#Java
+# Java
 
 ### Process와 Thread 설명
 *Process* : 운영체제로 부터 자원을 할당받은 작업의 단위로 프로세서를 할당받아 주소공간, 파일, 메모리등 자원을 할당 받아 작업이 실행됨. 각 프로세스는 자신만의 고유 공간과 자원을 할당받기 때문에 프로세스간 자원 공유등의 통신을 위해서는 IPC(Inter-Process Communication)를 통해 진행하여야 함.
 
 *Thread* : 프로세스가 할당받은 자원을 이용하는 실행의 단위로 한 프로세스 내에서 동작되는 여러 실행의 흐름을 얘기하며 프로세스 내의 주소 공간이나 자원등을 쓰레드끼리 공유하며 실행이 가능함.
-
 
 [http://ralf79.tistory.com/34](http://ralf79.tistory.com/34)
 
@@ -13,14 +12,15 @@
 ### Process와 Thread의 퍼포먼스 비교
 스레드는 프로세스 내에서 각각의 스택 공간을 제외한 나머지 공간과 시스템 자원을 공유한다.그러므로 프로세스를 이용하여 동시에 처리하던 일을 스레드로 구현할 경우 메모리 공간은 물론 시스템 자원 소모도 현격히 줄어든다.. 이와 같이 프로세스를 생성하는 것보다 스레드를 생성하는 것이 효율적이다. 특히 멀티 프로세서 환경에서는 더욱 효과가 탁월하다. 스레드 간의 통신이 필요한 경우 별도의 자원을 이용하는 것이 아니라 전역 변수의 공간을 이용하여 데이터를 주고받을 수 있다.
 
+##### Thread 장점
 
-#####Thread 장점
 * 시스템의 처리량이 향상
 * 시스템의 자원소모가 줄어듬
 * 프로그램간 응답 시간 단축
 * 프로세스간 통신 방법 보다 스레드간 통신방법이 간단
 
-#####Thread 단점
+##### Thread 단점
+
 * 멀티쓰레드 프로그래밍시 주의 깊게 설계가 필요 - 미묘한 시간, 잘못된 변수 공유로 오류 발생 확률 증가
 * 공유되는 전역 변수에 대한 충돌로 인한 동기화 문제 해결 필요
 * 프로그램 디버깅이 어려움 
@@ -35,14 +35,15 @@
 * 프로세스가 자원을 요청시 그 시각에 해당 자원을 누군가가 사용하거나 점유하여 사용할 수 없는 상태가 발생하여 대기 상태가 발생하는 상황
 * 대기상태가 다시 실행 상태로 변경되지 않을 경우
 
-######교착상태의 특징
+##### 교착상태의 특징
 
 * 상호배제(Mutual exclusion) : 한번에 오직 한 프로세스만 자원을 사용
 * 점유대기(Hold and wait) : 프로세스가 적어도 하나의 자원을 점유하면서 다른 프로세스가 점유하고 있는 자원을 추가로 얻기위해 대기
 * 비선점(No preemption) : 점유된 자원은 강제로 해제될 수 없고, 점유하고 있는 프로세스가 작업을 마치고 자원을 자발적으로 해제
 * 순환대기(Circular wait) : 대기하고 있는 프로세스 집합에서 P0 ~ Pn에서 꼬리를 물면서 점유한 자원을 계속 대기하고 있는 상태
 
-######처리 방법
+##### 처리 방법
+
 * 교착상태 예방 및 회피 : 교착상태가 되지 않도록 보장하기 위해 교착상태를 예방하거나 회피하는 프로토콜을 이용하는 방법
 * 교착상태 탐지 및 회복 : 교착상태가 되도록 허용하고 다음에 회복시키는 방법
 * 교착 상태 무시 : 대부분의 시스템이 교착상태가 잘 발생하지 않으므로, 교착상태 예방, 회피 ,탐지, 복구방법을 무시
@@ -77,23 +78,25 @@ Heap메모리영역의 모든 Objects은 프로세스(어플리케이션) 내에
 
 
 ###### Example
-	package com.journaldev.test;
-	
-	public class Memory {
-	
-		public static void main(String[] args) { // Line 1
-			int i=1; // Line 2
-			Object obj = new Object(); // Line 3
-			Memory mem = new Memory(); // Line 4
-			mem.foo(obj); // Line 5
-		} // Line 9
-	
-		private void foo(Object param) { // Line 6
-			String str = param.toString(); //// Line 7
-			System.out.println(str);
-		} // Line 8
-	
-	}
+```java
+package com.journaldev.test;
+
+public class Memory {
+
+	public static void main(String[] args) { // Line 1
+		int i=1; // Line 2
+		Object obj = new Object(); // Line 3
+		Memory mem = new Memory(); // Line 4
+		mem.foo(obj); // Line 5
+	} // Line 9
+
+	private void foo(Object param) { // Line 6
+		String str = param.toString(); //// Line 7
+		System.out.println(str);
+	} // Line 8
+
+}
+```
 ![https://github.com/csi111/Interview/blob/master/java/Java-Heap-Stack-Memory.png](https://github.com/csi111/Interview/blob/master/java/Java-Heap-Stack-Memory.png)
 
 
@@ -106,7 +109,7 @@ JVM에서 GC가 수행될때는 프로그램의 수행을 모두 멈추고 GC를
 
 [http://d2.naver.com/helloworld/1329] (http://d2.naver.com/helloworld/1329)
 
-###GC대상 판별법
+### GC대상 판별법
 
 ### Mobile에서 GC의 단점
 GC가 수행될때 단말의 성능이 좋지 않은 경우 한번에 많은 Objects의 메모리가 반환되는 처리가 될때 앱이 버벅이는 경우가 발생
@@ -145,29 +148,32 @@ Java의 정수/실수형의 값 범위
 
 ### OOP 5대 원칙
 
-######SRP (단일책임의 원칙: Single Responsibility Principle)
+#### SRP (단일책임의 원칙: Single Responsibility Principle)
+
 - 작성된 클래스는 하나의 기능만 가지며 클래스가 제공하는 모든 서비스는 그 하나의 책임(변화의 축: axis of change)을 수행하는 데 집중되어 있어야 한다는 원칙
 - 어떤 변화에 의해 클래스를 변경해야 하는 이유는 오직 하나뿐이어야 함을 의미
 - 책임을 적절히 분배함으로써 코드의 가독성 향상, 유지보수 용이라는 이점까지 누릴 수 있으며 객체지향 원리의 대전제 격인 OCP원리뿐 아니라 다른 원리들을 적용하는 기초
 
-######OCP (개방폐쇄의 원칙: Open Close Principle)
+#### OCP (개방폐쇄의 원칙: Open Close Principle)
 
 - 소프트웨어의 구성요소(컴포넌트, 클래스, 모듈, 함수)는 확장에는 열려있고, 변경에는 닫혀있어야 한다는 원리
 - 요구사항의 변경이나 추가사항이 발생하더라도, 기존 구성요소는 수정이 일어나지 말아야 하며, 기존 구성요소를 쉽게 확장해서 재사용할 수 있어야 한다는 뜻
 - OCP를 가능케 하는 중요 메커니즘은 추상화와 다형성이라고 설명
 
+#### LSP (리스코브 치환의 원칙: The Liskov Substitution Principle)
 
-######LSP (리스코브 치환의 원칙: The Liskov Substitution Principle)
 - LSP를 한마디로 한다면, “서브 타입은 언제나 기반 타입으로 교체할 수 있어야 한다.”라고 할 수 있습니다. 즉, 서브 타입은 언제나 기반 타입과 호환될 수 있어야 합니다. 달리 말하면 서브 타입은 기반 타입이 약속한 규약(public 인터페이스, 물론 메소드가 던지는 예외까지 포함됩니다.)을 지켜야 합니다. 상속은 구현상속(extends 관계)이든 인터페이스 상속(implements 관계)이든 궁극적으로는 다형성을 통한 확장성 획득을 목표로 합니다. LSP원리도 역시 서브 클래스가 확장에 대한 인터페이스를 준수해야 함을 의미합니다
 - 다형성과 확장성을 극대화 하려면 하위 클래스를 사용하는 것보다는 상위의 클래스(인터페이스)를 사용하는 것이 더 좋습니다. 일반적으로 선언은 기반 클래스로 생성은 구체 클래스로 대입하는 방법을 사용
 - 생성 시점에서 구체 클래스를 노출시키기 꺼려질 경우 생성 부분을 Abstract Factory 등의 패턴을 사용하여 유연성을 높임
 - 상속을 통한 재사용은 기반 클래스와 서브 클래스 사이에 IS-A관계가 있을 경우로만 제한 되어야 합니다. 그 외의 경우에는 합성(composition)을 이용한 재사용을 해야 합니다. 상속은 다형성과 따로 생각할 수 없습니다. 그리고 다형성으로 인한 확장 효과를 얻기 위해서는 서브 클래스가 기반 클래스와 클라이언트 간의 규약(인터페이스)를 어겨서는 안 됩니다. 결국 이 구조는 다형성을 통한 확장의 원리인 OCP를 제공
 
-######ISP (인터페이스 분리의 원칙: Interface Segregation Principle)
+#### ISP (인터페이스 분리의 원칙: Interface Segregation Principle)
+
 - ISP원리는 한 클래스는 자신이 사용하지 않는 인터페이스는 구현하지 말아야 한다는 원리
 - 어떤 클래스가 다른 클래스에 종속될 때에는 가능한 최소한의 인터페이스만을 사용
 
-######DIP (의존성역전의 원칙: Dependency Inversion Principle)
+#### DIP (의존성역전의 원칙: Dependency Inversion Principle)
+
 - 의존 관계의 역전 Dependency Inversion 이란 구조적 디자인에서 발생하던 하위 레벨 모듈의 변경이 상위 레벨 모듈의 변경을 요구하는 위계관계를 끊는 의미의역전
 - 실제 사용 관계는 바뀌지 않으며, 추상을 매개로 메시지를 주고 받음으로써 관계를 최대한 느슨하게 만드는 원칙
 
@@ -196,38 +202,40 @@ hashcode
 equals에서 쓰는 멤버 변수를 hashCode를 구현하는데도 똑같이 쓰면 됩니다.
 
 
-	public class Person {
-	    private String name;
-	    public Person(String name) {
-	        super();
-	        this.name = name;
-	    }
-	    public void setName(String name) {
-	        this.name = name;
-	    }
-	    @Override
-	    public int hashCode() {
-	        final int PRIME = 31;
-	        int result = 1;
-	        result = PRIME * result + ((name == null) ? 0 : name.hashCode());
-	        return result;
-	    }
-	    @Override
-	    public boolean equals(Object obj) {
-	        if (this == obj)
-	            return true;
-	        if (obj == null)
-	            return false;
-	        if (getClass() != obj.getClass())
-	            return false;
-	        final Person other = (Person) obj;
-	        if (name == null) {
-	            if (other.name != null)
-	                return false;
-	        } else if (!name.equals(other.name))
-	            return false;
-	        return true;
-	    }
+```java
+public class Person {
+    private String name;
+    public Person(String name) {
+        super();
+        this.name = name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Override
+    public int hashCode() {
+        final int PRIME = 31;
+        int result = 1;
+        result = PRIME * result + ((name == null) ? 0 : name.hashCode());
+        return result;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Person other = (Person) obj;
+        if (name == null) {
+            if (other.name != null)
+                return false;
+        } else if (!name.equals(other.name))
+            return false;
+        return true;
+    }
+```
 
 Reference [http://iilii.egloos.com/4000476](http://iilii.egloos.com/4000476)
 
@@ -263,7 +271,7 @@ Reference [http://www.nextree.co.kr/p11686/](http://www.nextree.co.kr/p11686/)
 * toString()
 * finalize()
 
- 
+
 ### Generic이란  
 제네릭(Generic)은 클래스 내부에서 사용할 데이터 타입을 외부에서 지정하는 기법을 의미한다.
 쉽게말해서 ArrayList(컬렉션 클래스에서 사용가능하지만 쉬운 설명을 위해 대표적인 컬렉션 클래스인 ArrayList를 가지고 설명 하겠습니다.) 가 다룰 객체를 미리 명시해줌으로써 형변환을 하지 않고 사용하는 것입니다. 즉 ArrlayList가 사용할 객체의 타입이란 이야기 입니다
@@ -324,47 +332,48 @@ Reference
 
 *HashMap과 HashTable*
 
-######공통점
+##### 공통점
 
 * 내부적으로 모두 Hash기법을 사용
 * Java Collection Package의 Map인터페이스를 구현
 * Key,Value방식을 이용하여 Data 관리
 
-#####차이점
+##### 차이점
 
 * Hashtable은 동기화가 보장된다.
 * HashMap은 동기화가 보장되지 않는다.
 * HashMap은 저장요소의 순회를 위해 Fail-Fast Iterator를 반환하며 HasTable은 Enumeration을 반환한다. 
 
- ****
+****
 
-###Singleton에서 메모리누수 발생상황
+### Singleton에서 메모리누수 발생상황
 
-###Singleton을 깨는 방법은?
+### Singleton을 깨는 방법은?
 
-###쓰레드에서 공유하는 리소스는?
+### 쓰레드에서 공유하는 리소스는?
 
-###쓰레드는 왜 각자 스택영역을 갖는가
+### 쓰레드는 왜 각자 스택영역을 갖는가
 
-###익명클래스에서 static접근 가능여부
+### 익명클래스에서 static접근 가능여부
 
-###static변수 메모리 저장영역
+### static변수 메모리 저장영역
 
-###ArrayList와 LinkedList차이
+### ArrayList와 LinkedList차이
 
-###ArrayList가 한번에 찾을 수 있는 이유는?
+### ArrayList가 한번에 찾을 수 있는 이유는?
 
-###TreeSet과 HashSet의 차이
+### TreeSet과 HashSet의 차이
 
-###Hashmap을 사용하는 이유
+### Hashmap을 사용하는 이유
 
-###Hashmap에서 정렬된상태로 유지하고싶은 경우
+### Hashmap에서 정렬된상태로 유지하고싶은 경우
 
-###Primitive타입에서 read write는 atomic할까
+### Primitive타입에서 read write는 atomic할까
 
-###Tree에 대해서 설명
+### Tree에 대해서 설명
 
-###Tree에서 balance상태를 유지하기위해서 수행하는 작업이 시간복잡도에 영향을 미치는가
+### Tree에서 balance상태를 유지하기위해서 수행하는 작업이 시간복잡도에 영향을 미치는가
 
-###Volatile 키워드에 대해 설명
+### Volatile 키워드에 대해 설명
 
+### JIT 컴파일러
